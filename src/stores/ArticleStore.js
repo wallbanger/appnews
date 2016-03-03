@@ -4,9 +4,10 @@ import AppDispatcher from '../dispather'
 
 class ArticleStore extends EventEmitter {
     constructor(initialState) {
+        super()
         this.__items = initialState
         AppDispatcher.register((action) => {
-            
+
         })
     }
 
