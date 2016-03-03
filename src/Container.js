@@ -6,12 +6,27 @@ class Container extends Component {
     state = {
         articles: articlesStore.getAll()
     }
+
+    componentDidMount() {
+        articlesStore.addChangeListener(this.change)
+    }
+
+    componentWillMount() {
+        articlesStore.removeChangeListener(this.change)
+    }
+
     render() {
         return (
             <div>
                 <ArticleList articles = {this.state.articles} />
             </div>
         )
+    }
+
+    change = () => {
+        this.setState({
+            articles: articlesStore.getAll()
+        })
     }
 }
 

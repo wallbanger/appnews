@@ -1,6 +1,25 @@
-class ArticleStore {
+import { EventEmitter } from 'events'
+const CHANGE_EVENT = 'CHANGE_EVENT'
+import AppDispatcher from '../dispather'
+
+class ArticleStore extends EventEmitter {
     constructor(initialState) {
         this.__items = initialState
+        AppDispatcher.register((action) => {
+            
+        })
+    }
+
+    emitChange() {
+        this.emit(CHANGE_EVENT)
+    }
+
+    addChangeListener(callback) {
+        this.on(CHANGE_EVENT, callback)
+    }
+
+    removeChangeListener(callback) {
+        this.removeListener(CHANGE_EVENT, callback)
     }
 
     getAll() {
