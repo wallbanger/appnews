@@ -1,6 +1,6 @@
 class ArticleStore {
     constructor(initialState) {
-        this.__items = initialeState
+        this.__items = initialState
     }
 
     getAll() {
@@ -19,3 +19,5 @@ class ArticleStore {
         this.__items = this.__items.filter(item => item.id != id)
     }
 }
+
+export default ArticleStore
