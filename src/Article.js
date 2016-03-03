@@ -1,39 +1,48 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import CommentList from './CommentList'
+import CSSTransition from 'react-addons-css-transition-group'
+import withHint from './HOC/withHint'
+require('./style.css')
 
 class Article extends Component {
-    constructor() {
-        super()
-        this.state = {
-            showBody: false
-        };
-    }
+    static propTypes = {
+        article: PropTypes.object,
+
+        isOpen: PropTypes.bool,
+        toggleOpen: PropTypes.func
+    };
 
     render() {
         return (
             <div>
-                <a href = "#" onClick = {this.select.bind(this)}>select</a>
+                <a href = "#" onClick = {this.select.bind(this)} >select</a>
+                {this.props.getHint()}
                 {this.getTitle()}
-                {this.getBody()}
+                <CSSTransition transitionName="example" transitionAppear={true}
+                    transitionAppearTimeout={500}
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}>
+                    {this.getBody()}
+                </CSSTransition>
             </div>
         )
     }
 
     getTitle() {
-        const { title } = this.props.article
-        const selectedStyle = this.props.selected ? {color: 'red'} : null;
+        const {showHint, hideHint, onClick, selected, article: { title }} = this.props
+        const selectedStyle = selected ? {color: 'red'} : null;
         return  (
-            <h3 style = {selectedStyle} onClick={this.handleClick.bind(this)}>
+            <h3 style = {selectedStyle} onClick={onClick}  onMouseEnter = {showHint(title)} onMouseLeave={hideHint}>
                 {title}
             </h3>
         )
     }
 
     getBody() {
-        if (!this.state.showBody) return null
+        if (!this.props.isOpen) return null
         const {article} = this.props
         return (
-            <div>
+            <div key="article">
                 <p>{article.body}</p>
                 <CommentList comments = {article.comments || []} />
             </div>
@@ -44,12 +53,6 @@ class Article extends Component {
         ev.preventDefault()
         this.props.select()
     }
-
-    handleClick(ev) {
-        this.setState({
-            showBody: !this.state.showBody
-        })
-    }
 }
 
-export default Article
+export default withHint(Article)
