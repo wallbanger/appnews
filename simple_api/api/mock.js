@@ -220,6 +220,13 @@ var comments = [
         article: 1,
         user: 'roma'
     }
+    {
+        id: 28,
+        text: 'last comment',
+        timeStamp: new Date(),
+        article: 1,
+        user: 'Vasia'
+    }
 ];
 
 module.exports = {
