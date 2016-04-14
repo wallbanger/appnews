@@ -225,7 +225,7 @@ var comments = [
         text: 'last comment',
         timeStamp: new Date(),
         article: 1,
-        user: 'Vasia'
+        user: 'Eugene'
     }
 ];
 
