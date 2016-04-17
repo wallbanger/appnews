@@ -219,12 +219,19 @@ var comments = [
         timeStamp: new Date(),
         article: 1,
         user: 'roma'
-    }
+    },
     {
         id: 28,
-        text: 'last comment',
+        text: 'it comment',
         timeStamp: new Date(),
         article: 1,
+        user: 'Eugene'
+    },
+    {
+        id: 29,
+        text: 'last comment',
+        timeStamp: new Date(),
+        article: 2,
         user: 'Eugene'
     }
 ];
