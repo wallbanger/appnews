@@ -236,10 +236,17 @@ var comments = [
     },
     {
         id: 30,
-        text: 'last comment',
+        text: 'comment',
         timeStamp: new Date(),
         article: 3,
         user: 'Piter'
+    },
+    {
+        id: 31,
+        text: 'last comment',
+        timeStamp: new Date(),
+        article: 1,
+        user: 'Adam'
     }
 ];
 
