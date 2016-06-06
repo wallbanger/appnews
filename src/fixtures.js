@@ -21,7 +21,14 @@ export const articles = [
 ]
 
 export const comments = [
-    {text: 'hello', id: 1},
-    {text: 'other comment', id: 2}
-    {text: '3 comment', id: 3}
+    {
+        text: 'hello', 
+        id: 1
+    }, {
+        text: 'other comment', 
+        id: 2
+    }, {
+        text: '3 comment', 
+        id: 3
+    }
 ]
