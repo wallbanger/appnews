@@ -25,7 +25,7 @@ export const comments = [
         text: 'hello', 
         id: 1
     }, {
-        text: 'other comment', 
+        text: 'comment', 
         id: 2
     }, {
         text: '3 comment', 
